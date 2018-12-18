@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: AWS SAM NodeJS Tutorial
+Resources:
+  ExampleRoot:
+    Properties:
+      CodeUri: s3://sam-test-01/7238ac2657a9566436c8882d9848bed1
+      Events:
+        HelloAPICAll:
+          Properties:
+            Method: GET
+            Path: /hello
+          Type: Api
+      FunctionName: HelloSAMLambda
+      Handler: index.handler
+      Runtime: nodejs8.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
